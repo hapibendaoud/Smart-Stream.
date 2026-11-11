@@ -10,7 +10,7 @@ export async function getData(){
         if(!data){
             throw error("Error Data type!!");
         }
-        // console.log("Service: ",data);
+        console.log("Service: ",data);
         
         return data;
     } catch(e){

@@ -7,5 +7,6 @@ body{
     color: white;
 }
 .active{
-    background-color: #051770;
+    background-color: #2448fe;
+    border: rgb(126, 126, 168) 1px solid;
 }

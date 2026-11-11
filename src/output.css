@@ -204,12 +204,6 @@
   .z-50 {
     z-index: 50;
   }
-  .order-1 {
-    order: 1;
-  }
-  .order-2 {
-    order: 2;
-  }
   .my-4 {
     margin-block: calc(var(--spacing) * 4);
   }
@@ -257,9 +251,6 @@
   }
   .max-h-56 {
     max-height: calc(var(--spacing) * 56);
-  }
-  .max-h-96 {
-    max-height: calc(var(--spacing) * 96);
   }
   .min-h-screen {
     min-height: 100vh;
@@ -375,10 +366,6 @@
   .border {
     border-style: var(--tw-border-style);
     border-width: 1px;
-  }
-  .border-t {
-    border-top-style: var(--tw-border-style);
-    border-top-width: 1px;
   }
   .border-b {
     border-bottom-style: var(--tw-border-style);
@@ -511,15 +498,6 @@
     .hover\:bg-\[\#071B9C\]:hover {
       background-color: #071B9C;
     }
-    .hover\:bg-\[\#2742F5\]:hover {
-      background-color: #2742F5;
-    }
-    .hover\:bg-\[\#010318\]:hover {
-      background-color: #010318;
-    }
-    .hover\:bg-\[\#051470\]:hover {
-      background-color: #051470;
-    }
   }
   .focus\:right-0:focus {
     right: 0px;
@@ -536,14 +514,11 @@
     .md\:fixed {
       position: fixed;
     }
-    .md\:order-1 {
-      order: 1;
-    }
-    .md\:order-2 {
-      order: 2;
-    }
     .md\:ml-90 {
       margin-left: calc(var(--spacing) * 90);
+    }
+    .md\:ml-100 {
+      margin-left: calc(var(--spacing) * 100);
     }
     .md\:h-150 {
       height: calc(var(--spacing) * 150);
@@ -560,15 +535,14 @@
     .md\:w-90 {
       width: calc(var(--spacing) * 90);
     }
+    .md\:w-100 {
+      width: calc(var(--spacing) * 100);
+    }
     .md\:flex-row {
       flex-direction: row;
     }
     .md\:justify-center {
       justify-content: center;
-    }
-    .md\:border-t-0 {
-      border-top-style: var(--tw-border-style);
-      border-top-width: 0px;
     }
     .md\:border-r {
       border-right-style: var(--tw-border-style);
@@ -604,7 +578,8 @@ body {
   color: white;
 }
 .active {
-  background-color: #051770;
+  background-color: #2448fe;
+  border: rgb(126, 126, 168) 1px solid;
 }
 @property --tw-translate-x {
   syntax: "*";
