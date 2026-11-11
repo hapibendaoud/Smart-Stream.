@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./src/output.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image/smartStreamLogo.png">
     <title>Smart Stream</title>
 </head>
 <body class="bg-[#010518] text-white overflow-x-hidden min-h-screen">
     <main class="w-full min-h-screen flex flex-col md:flex-row relative">
         <!-- Side nav -->
-        <nav class="w-full md:w-90 shrink-0 h-auto md:h-screen flex flex-col bg-[#010518] border-b md:border-b-0 md:border-r border-[#051770] px-4 md:px-8 py-4 sticky md:fixed top-0 z-30">
+        <nav class="w-full md:w-100 shrink-0 h-auto md:h-screen flex flex-col bg-[#010518] border-b md:border-b-0 md:border-r border-[#051770] px-4 md:px-8 py-4 sticky md:fixed top-0 z-30">
             <h2 class="text-3xl font-bold text-white italic">Smart <span class="text-blue-600">Stream</span></h2>
             <input id="search" class="text-white text-xs my-4 px-4 py-2.5 rounded-2xl border border-[#051770] outline-none focus:right-0 bg-transparent" placeholder="Search" type="text">
             <div class="flex pb-4 justify-between items-center">
@@ -18,7 +19,7 @@
             </div>
             <section id="channels_section" class="flex flex-col w-full gap-2 overflow-y-auto max-h-56 md:max-h-full scrollbar-none [&::-webkit-scrollbar]:hidden">
                 <!-- Channels card -->
-                <article class="active flex items-center justify-between p-2 border border-[#07209C] rounded-lg">
+                <!-- <article class="active flex items-center justify-between p-2 border border-[#07209C] rounded-lg">
                     <div class="flex gap-5 items-center h-fit w-full">
                         <div class="bg-[#0B32F4] w-10 h-10 flex items-center justify-center text-2xl rounded-lg italic shrink-0">
                             <img src="https://images.seeklogo.com/logo-png/65/2/2m-logo-png_seeklogo-656486.png" alt="logo">
@@ -35,7 +36,7 @@
                         </div>
                         <p class="text-xs text-gray-400">10.1k</p>
                     </div>
-                </article>
+                </article> -->
             </section>
         </nav>
 
@@ -45,7 +46,7 @@
                 <h1 class="uppercase font-bold text-2xl">Category</h1>
                 <div id="close_popup" class="w-6 h-6 bg-[#2749F5] flex items-center justify-center pb-1 rounded-2xl cursor-pointer">x</div>
             </div>
-            <div class="flex items-center gap-2 border border-[#0929C8] p-1 rounded-lg cursor-pointer hover:bg-[#071B9C]">
+            <div id="all_channels" class="flex items-center gap-2 border border-[#0929C8] p-1 rounded-lg cursor-pointer hover:bg-[#071B9C]">
                 <div class="relative px-4">
                     <div class="absolute w-4 h-4 bg-[#2749F5] rounded-2xl animate-ping"></div>
                     <div class="relative w-4 h-4 bg-[#2749F5] rounded-2xl"></div>
@@ -57,28 +58,31 @@
         </div>
 
         <!-- Main Player & Stats -->
-        <main class="ml-0 md:ml-90 w-full flex-1 flex flex-col justify-start md:justify-center p-4 md:p-8 gap-4 min-w-0">
-            <div class="w-full h-56 sm:h-96 md:h-150 rounded-2xl bg-[#2749F5]"></div>
+        <main class="ml-0 md:ml-100 w-full flex-1 flex flex-col justify-start md:justify-center p-4 md:p-8 gap-4 min-w-0">
+            <div class="w-full h-56 sm:h-96 md:h-150 rounded-2xl bg-[#2749F5] overflow-hidden">
+                <video id="video" class="wfull h-full" width="100%" controls>
+                </video>
+            </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 p-2 md:p-5 gap-4">
                 <div class="flex items-center p-2 bg-[#030E44] rounded-lg">
                     <div class="flex gap-5 items-center h-fit w-full">
                         <div class="bg-[#0B32F4] w-10 h-10 flex items-center justify-center text-2xl rounded-lg italic shrink-0">SB</div>
                         <div class="truncate">
-                            <h2 class="font-bold text-lg truncate">Name Channel</h2>
-                            <p class="text-xs text-gray-400">Description</p>
+                            <h2 id="name_channel" class="font-bold text-lg truncate">Name Channel</h2>
+                            <p id="desc_chaennel" class="text-xs text-gray-400">Description</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="flex flex-col justify-center p-2 bg-[#030E44] rounded-lg">
                     <p class="text-gray-400 text-xs">Now Playing</p>
-                    <h2 class="text-lg font-bold truncate">World Report Live</h2>
+                    <h2 id="playing_now" class="text-lg font-bold truncate"></h2>
                 </div>
 
                 <div class="p-2 bg-[#030E44] rounded-lg">
                     <p class="text-gray-400 text-xs">category</p>
-                    <h2 class="text-lg font-bold truncate">News</h2>
+                    <h2 id="category_name" class="text-lg font-bold truncate">News</h2>
                 </div>
 
                 <div class="p-2 bg-[#030E44] rounded-lg">
