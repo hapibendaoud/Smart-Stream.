@@ -67,7 +67,7 @@
                                 <div class=" h-2 rounded bg-[#0B1FF4]"></div>
                                 
                             </div>
-                        </div>
+                        </div> 
                     </div>
                     <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
                         <div class="flex animate-pulse space-x-4">
@@ -133,7 +133,7 @@
         <!-- Main Player & Stats -->
         <main class="ml-0 md:ml-100 w-full flex-1 flex flex-col justify-start md:justify-center p-4 md:p-8 gap-4 min-w-0">
             <div class="w-full h-56 sm:h-96 md:h-150 rounded-2xl bg-[#2749F5] overflow-hidden">
-                <video id="video" class="wfull h-full" width="100%" controls>
+                <video id="video" class="wfull h-full" width="100%" controls autoplay>
                 </video>
             </div>
             
@@ -143,7 +143,7 @@
                         <div class="bg-[#0B32F4] w-10 h-10 flex items-center justify-center text-2xl rounded-lg italic shrink-0">SB</div>
                         <div class="truncate">
                             <h2 id="name_channel" class="font-bold text-lg truncate">Name Channel</h2>
-                            <p class="text-xs text-gray-400">
+                            <p id="desc_chaennel" class="text-xs text-gray-400">
                                 <div id="loading_name" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div>
                             </p>
                         </div>
@@ -152,12 +152,12 @@
                 
                 <div class="flex flex-col justify-center p-2 bg-[#030E44] rounded-lg">
                     <p class="text-gray-400 text-xs">Now Playing</p>
-                    <h2 class="text-lg font-bold truncate"><div id="loading_palying" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div></h2>
+                    <h2 id="playing_now" class="text-lg font-bold truncate"><div id="loading_palying" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div></h2>
                 </div>
 
                 <div class="p-2 bg-[#030E44] rounded-lg">
                     <p class="text-gray-400 text-xs">category</p>
-                    <h2 class="text-lg font-bold truncate"><div id="loading_category" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div></h2>
+                    <h2 id="category_name" class="text-lg font-bold truncate"><div id="loading_category" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div></h2>
                 </div>
 
                 <div class="p-2 bg-[#030E44] rounded-lg">
