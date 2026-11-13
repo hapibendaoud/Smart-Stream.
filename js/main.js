@@ -71,11 +71,11 @@ function channels(channel) {
                 </div>
             </div>
             <div class="flex items-center gap-1">
+                <p class="text-xs text-gray-400">${element.channelNumber    }</p>
                 <div class="relative">
                     <div class="absolute w-2 h-2 bg-[#2749F5] rounded-2xl animate-ping"></div>
                     <div class="relative w-2 h-2 bg-[#2749F5] rounded-2xl "></div>
                 </div>
-                <p class="text-xs text-gray-400">10.1k</p>
             </div>`;
         
         channels_section.append(article);
