@@ -71,11 +71,11 @@ function channels(channel) {
                 </div>
             </div>
             <div class="flex items-center gap-1">
+                <p class="text-xs text-gray-400">${element.channelNumber    }</p>
                 <div class="relative">
                     <div class="absolute w-2 h-2 bg-[#2749F5] rounded-2xl animate-ping"></div>
                     <div class="relative w-2 h-2 bg-[#2749F5] rounded-2xl "></div>
                 </div>
-                <p class="text-xs text-gray-400">10.1k</p>
             </div>`;
         
         channels_section.append(article);
@@ -94,24 +94,35 @@ function channels(channel) {
                 const playing_now = document.getElementById("playing_now");
                 
                 if (videoElement) {
-                    videoElement.innerHTML = "";
-                    
-                    const source = document.createElement("source");
-                    source.setAttribute("src", finded_channel.streamUrl);
-                    source.setAttribute("type", "video/mp4");
-                    
                     if (name_channel) name_channel.textContent = finded_channel.name;
                     if (desc_chaennel) desc_chaennel.textContent = finded_channel.channelNumber || '';
                     if (category_name) category_name.textContent = finded_channel.category || '';
                     if (playing_now) playing_now.textContent = finded_channel.epg?.currentProgram || 'Live Stream';
 
-                    console.log(element.epg.currentProgram);
-                    
-                    videoElement.append(source);
-                    videoElement.load();
-                    videoElement.play().catch(err => console.log("Auto-play prevented:", err));
-                }
+                    const streamUrl = finded_channel.streamUrl;
 
+                    if (window.Hls && Hls.isSupported()) {
+                        if (window.currentHlsPlayer) {
+                            window.currentHlsPlayer.destroy();
+                        }
+                        const hls = new Hls();
+                        window.currentHlsPlayer = hls;
+                        hls.loadSource(streamUrl);
+                        hls.attachMedia(videoElement);
+                        hls.on(hls.Events.MANIFEST_PARSED, () => {
+                            videoElement.play().catch(err => console.log("Auto-play prevented:", err));
+                        });
+                    } 
+                    else if (videoElement.canPlayType('application/vnd.apple.mpegurl')) {
+                        videoElement.src = streamUrl;
+                        videoElement.addEventListener('loadedmetadata', () => {
+                            videoElement.play().catch(err => console.log("Auto-play prevented:", err));
+                        });
+                    } else {
+                        videoElement.src = streamUrl;
+                        videoElement.play().catch(err => console.log("Playback error:", err));
+                    }
+                }
             }
         });
     });

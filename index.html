@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./src/output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <link rel="icon" type="image/png" href="image/smartStreamLogo.png">
     <title>Smart Stream</title>
 </head>
@@ -37,6 +38,78 @@
                         <p class="text-xs text-gray-400">10.1k</p>
                     </div>
                 </article> -->
+                <div id="channels_loading" class="channels_loading flex flex-col gap-3">
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto w-full max-w-sm rounded-md border border-[#050E70] p-4">
+                        <div class="flex animate-pulse space-x-4">
+                            <div class="size-10 rounded-lg bg-[#0B1FF4]"></div>
+                            <div class="flex-1 space-y-3 py-1">
+                            <div class="h-2 rounded bg-[#0B1FF4]"></div>
+                                <div class=" h-2 rounded bg-[#0B1FF4]"></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
         </nav>
 
@@ -60,7 +133,7 @@
         <!-- Main Player & Stats -->
         <main class="ml-0 md:ml-100 w-full flex-1 flex flex-col justify-start md:justify-center p-4 md:p-8 gap-4 min-w-0">
             <div class="w-full h-56 sm:h-96 md:h-150 rounded-2xl bg-[#2749F5] overflow-hidden">
-                <video id="video" class="wfull h-full" width="100%" controls>
+                <video id="video" class="wfull h-full" width="100%" controls autoplay>
                 </video>
             </div>
             
@@ -70,19 +143,21 @@
                         <div class="bg-[#0B32F4] w-10 h-10 flex items-center justify-center text-2xl rounded-lg italic shrink-0">SB</div>
                         <div class="truncate">
                             <h2 id="name_channel" class="font-bold text-lg truncate">Name Channel</h2>
-                            <p id="desc_chaennel" class="text-xs text-gray-400">Description</p>
+                            <p id="desc_chaennel" class="text-xs text-gray-400">
+                                <div id="loading_name" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div>
+                            </p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="flex flex-col justify-center p-2 bg-[#030E44] rounded-lg">
                     <p class="text-gray-400 text-xs">Now Playing</p>
-                    <h2 id="playing_now" class="text-lg font-bold truncate"></h2>
+                    <h2 id="playing_now" class="text-lg font-bold truncate"><div id="loading_palying" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div></h2>
                 </div>
 
                 <div class="p-2 bg-[#030E44] rounded-lg">
                     <p class="text-gray-400 text-xs">category</p>
-                    <h2 id="category_name" class="text-lg font-bold truncate">News</h2>
+                    <h2 id="category_name" class="text-lg font-bold truncate"><div id="loading_category" class="h-2 animate-pulse rounded bg-[#0B1FF4]"></div></h2>
                 </div>
 
                 <div class="p-2 bg-[#030E44] rounded-lg">
